@@ -1,0 +1,81 @@
+$('#contactinfo').html(`
+	 <p class="mt-40px fs-12">По всем вопросам обращайтесь по почте support@TerrariaSNG.ru</p>
+	 <div class="noselect" oncontextmenu="return false" onmousedown="return false" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+	     <p class="fs-12"></p>
+	 </div>
+`);
+
+function intToString (value) {
+    var suffixes = ["", "К", "М", "Б","Т"];
+    var suffixNum = Math.floor((""+value).length/3);
+    var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+    if (shortValue % 1 != 0) {
+        shortValue = shortValue.toFixed(1);
+    }
+    return shortValue+suffixes[suffixNum];
+}
+
+function setServerStats(data) {
+	 var activePlayers = intToString(data.active_users);
+	 var bannedPlayers = intToString(data.banned_players);
+	 var lastReset = data.last_reset;
+	 var newPlayers = intToString(data.new_players);
+	 
+     var serverStats = `
+        <div class="col-lg-3">
+          <div class="stat">
+            <i class="bx bx-group"></i>
+            <div class="d-block">
+              <b>${activePlayers}</b>
+              <p>АКТИВНЫХ ПОЛЬЗОВАТЕЛЕЙ</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="stat">
+            <i class="bx bx-user-x"></i>
+            <div class="d-block">
+              <b>${bannedPlayers}</b>
+              <p>ЗАБАНЕННЫХ ИГРОКОВ</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="stat">
+            <i class="bx bx-brush"></i>
+            <div class="d-block">
+              <b>${lastReset}</b>
+              <p>ПОСЛЕДНИЙ ВАЙП</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="stat">
+            <i class="bx bx-plus-circle"></i>
+            <div class="d-block">
+              <b>${newPlayers}</b>
+              <p>НОВЫХ ИГРОКОВ</p>
+            </div>
+          </div>
+        </div>
+	 `;
+     $('#serverstats').html(serverStats);
+}
+  
+$.ajax({
+    url: "/serverstats.php",
+    dataType: "json",
+    type: "GET",
+    async: true,
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: {},
+    success: function (data) {
+       setServerStats(data);
+    },
+    error: function (data) {
+       console.log(data);
+    },
+});
+  

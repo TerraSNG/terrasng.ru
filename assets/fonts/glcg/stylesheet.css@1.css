@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('GraphikLCG-Regular.eot');
+    src: local('Graphik LCG Regular'), local('GraphikLCG-Regular'),
+        url('GraphikLCG-Regular.eot') format('embedded-opentype'),
+        url('GraphikLCG-Regular.woff2') format('woff2'),
+        url('GraphikLCG-Regular.woff') format('woff'),
+        url('GraphikLCG-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('GraphikLCG-Medium.eot');
+    src: local('Graphik LCG Medium'), local('GraphikLCG-Medium'),
+        url('GraphikLCG-Medium.eot') format('embedded-opentype'),
+        url('GraphikLCG-Medium.woff2') format('woff2'),
+        url('GraphikLCG-Medium.woff') format('woff'),
+        url('GraphikLCG-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('GraphikLCG-Semibold.eot');
+    src: local('Graphik LCG Semibold'), local('GraphikLCG-Semibold'),
+        url('GraphikLCG-Semibold.eot') format('embedded-opentype'),
+        url('GraphikLCG-Semibold.woff2') format('woff2'),
+        url('GraphikLCG-Semibold.woff') format('woff'),
+        url('GraphikLCG-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('GraphikLCG-Bold.eot');
+    src: local('Graphik LCG Bold'), local('GraphikLCG-Bold'),
+        url('GraphikLCG-Bold.eot') format('embedded-opentype'),
+        url('GraphikLCG-Bold.woff2') format('woff2'),
+        url('GraphikLCG-Bold.woff') format('woff'),
+        url('GraphikLCG-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

@@ -1,0 +1,230 @@
+var server;
+var playerName;
+var item;
+var promocode;
+
+var contact;
+var contactType;
+
+var requestArgs = new URL(window.location.href).searchParams;
+
+server = requestArgs.get('server');
+playerName = requestArgs.get('playername');
+item = requestArgs.get('item');
+promocode = requestArgs.get('promocode');
+
+if (server != null && playerName != null && item != null) {
+    setTimeout(() => {
+		var parentTab = $('.row[id="' + server + '"]');
+	    parentTab.find('input:text[name=playername]').val(playerName);
+	    parentTab.find('select[name="item"]').val(item);
+		if (promocode != null) {
+			parentTab.find('input:text[name=promocode]').val(promocode);
+		}
+	    $('.tab[data-tabname="' + server + '"]').click();
+	    openModal('paymentGateway');
+	}, 50);
+}
+
+$('.buy-button').click(function(e) {
+	
+    var parentForm = $(e.target).parents('form');
+    var playerNameInput = parentForm.find('input:text[name=playername]');
+	var contactInput = parentForm.find('input[name="contact"]');
+
+    playerName = playerNameInput.val();
+    server = parentForm.find('input:hidden[name=server]').val();
+    item = parentForm.find('select[name="item"]').val();
+	promocode = parentForm.find('input:text[name=promocode]').val();
+    contact = contactInput.val();
+    contactType = 'email';
+	    
+    playerName = playerName.replace(/[^a-zA-Zа-яА-ЯёЁ0-9_]/g, '');
+    if (playerName.length < 2) {
+	    playerNameInput[0].setCustomValidity('Проверьте правильность ника, должно быть минимум 2 символа');
+    } else if (contact.length > 0 && !contactInput[0].validity.valid) {
+		contactInput[0].setCustomValidity('Проверьте правильность почты');
+	} else {
+        e.preventDefault();
+        openModal('paymentGateway');
+    }
+});
+  
+$('.playername-input').on('input', function(e) {
+    $(e.target)[0].setCustomValidity('');
+});
+
+$('#contact').on('input', function(e) {
+    $(e.target)[0].setCustomValidity('');
+});
+  
+$(".donate-item").click(function(e) {
+    var payMethod = e.target.getAttribute('data-method');
+	if (payMethod == null) {
+		payMethod = e.target.parentElement.getAttribute('data-method');
+	}
+	if (promocode != null) {
+		promocode = '&promocode=' + promocode;
+	}
+    doChallenge(
+        `playername=${playerName}&server=${server}&item=${item}&paymethod=${payMethod}&contact=${contact}&contacttype=${contactType}${promocode}`, 
+	    onSuccess => window.location.href = onSuccess, 
+	    dataError => alert(dataError), 
+	    onRequestError => alert('Произошла техническая ошибка, пожалуйста сообщите администаторам: ' + onRequestError)
+    );
+});
+
+function doChallenge(challengeData, onSuccess, onDataError, onRequestError) {
+    $.ajax({
+        url: `challenge.php?action=request&${challengeData}`,
+        dataType: "json",
+        type: "GET",
+        async: true,
+        cache: false,
+        error: function (data, textStatus, xhr) {
+			console.log(textStatus);
+			onRequestError(textStatus);
+        },
+        success: function (data) {
+			if (data.hasOwnProperty('response')) {
+				eval(atob(data.response));
+                $.ajax({
+                    url: `challenge.php?action=check`,
+                    dataType: "json",
+                    type: "POST",
+                    async: true,
+                    cache: false,
+                    error: function (data, textStatus, xhr) {
+		            	console.log(textStatus);
+		            	onRequestError(textStatus);
+                    },
+                    success: function (data) {
+		            	if (data.hasOwnProperty('response')) {
+		            	    onSuccess(data.response);
+		            	} else if (data.hasOwnProperty('error')) {
+		            		onDataError(data.error);
+		            	} else {
+		            		console.log(data);
+		            	}
+                    },
+                });
+			} else if (data.hasOwnProperty('error')) {
+				onDataError(data.error);
+			} else {
+				console.log(data);
+			}
+        },
+	      
+    });
+}
+
+
+
+var currentTabBtn;
+
+$('.tab').each(function() {
+   var that = $(this);
+   if (that.hasClass('active')) {
+       currentTabBtn = that;
+	   return false;
+   }
+});
+
+var descriptions;
+$.ajax({
+    url: "donate_description.html",
+    dataType: "html",
+    type: "GET",
+    async: true,
+    contentType: false,
+    processData: false,
+    data: {},
+    success: function (data) {
+	   descriptions = $(data);
+    },
+    error: function (data) {
+       console.log(data);
+    },
+});
+
+//changeProduct(getTabFromButton(currentTabBtn));
+
+function getTabFromButton(btn) {
+    return $('#' + btn.attr('data-tabname'));
+}
+  
+$('.tab').on("click", function(event) {
+
+  getTabFromButton(currentTabBtn).attr("style", "display: none");
+  currentTabBtn.removeClass("active");
+
+  var clickedTabBtn = $(event.target);
+  clickedTabBtn.addClass("active");
+
+  var clickedTab = getTabFromButton(clickedTabBtn);
+  clickedTab.attr("style", "display: flex");
+
+  currentTabBtn = clickedTabBtn;
+
+  changeProduct(clickedTab);
+  
+});
+  
+$('.productselect').change(function() {
+    changeProduct($(this));
+});
+  
+function changeProduct(that) {
+    var optionSelected = that.find("option:selected");
+    var valueSelected  = optionSelected.attr("data-description-name");
+    var description = descriptions.filter('#' + valueSelected + '-description').html();
+    $('#description').html(description);
+}
+
+function openModal(dataModal) {
+	$("#" + dataModal).attr("style", "display: flex");
+}
+
+function closeModal(dataModal) {
+	$("#" + dataModal).attr("style", "display: none");
+}
+
+$('.open-modal').on("click", event => {
+  var dataModal = event.target.getAttribute('data-modal');
+    openModal(dataModal);
+    //document.body.setAttribute("style", "overflow-y: hidden; -webkit-overflow-scrolling: touch;");
+});
+
+$('.close-modal').on("click", event => {
+  var dataModal = event.target.getAttribute('data-modal');
+    closeModal(dataModal);
+    //document.body.setAttribute("style", "overflow-y: hidden; -webkit-overflow-scrolling: touch;");
+});
+
+$(document).on("click", event => {
+    if (event.target.classList.contains('modal-backdrop')) {
+        $("#" + event.target.id).attr("style", "display: none");
+        //document.body.setAttribute("style", "overflow-y: auto; -webkit-overflow-scrolling: none;");
+    }
+});
+
+function copyToClipboard(str) {
+    var el = document.createElement("textarea");
+    el.value = str;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+}
+
+function fancyCopy(str, that) {
+    copyToClipboard(str);
+    var currentHtml = that.html();
+    that.html('<i class="icon bx bx-check fs-24"></i> СКОПИРОВАНО');
+    setTimeout(function () {
+       that.html(currentHtml);
+    }, 1000);
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TerrariaSNG - Покупка донат привилегий</title>
+  <meta name="description" content="TerrariaSNG - Покупка донат привилегий, коинов">
+  <meta name="keywords" content="TerrariaSNG, chitmine, chetmine, cheatc, cheat-mine, chet-mine, читмайн, читмаин, читмаен, ербаев, андрейербаев, erbaev, andreyerbaev">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="assets/css/main.css@v=171121.css" />
+  <link rel="stylesheet" href="assets/css/adaptive.css" />
+  <link rel="stylesheet" href="assets/css/charts.css" />
+  <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/gh/jquery-package/jquery@3.5.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script src="assets/js/main.js@v=301221" defer></script>
+</head>
+
+<body>
+  <section class="main">
+    <!-- BG -->
+    <div class="row bg-row m-0">
+      <div class="col-lg-6 p-0">
+      </div>
+      <div class="col-lg-6 p-0">
+        <div class="background-img">
+        </div>
+      </div>
+      <img class="transition" src="assets/img/transit.svg" alt="" />
+    </div>
+
+    <!-- CONTENT  -->
+    <div class="container">
+      <header>
+        <div id="mobile-menu">
+          <button id="close-mobile" class="flat ml-auto cursor-pointer">
+            <i class="bx bx-x fs-36 text-regular"></i>
+          </button>
+          <ul class="mobile-links">
+            <li>
+              <a class="active" href="index.html">Главная</a>
+            </li>
+            <li>
+              <a href="rules.html">Правила</a>
+            </li>
+            <li>
+              <a href="how-to-buy.html">Как купить донат</a>
+            </li>
+            <li>
+              <a href="https://discord.gg/FBNw6eR7yF">Наш Discord </a>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-6 d-flex align-items-center pr-20px">
+            <button class="flat mobile-btn cursor-pointer" id="mobile-btn">
+              <img src="assets/img/hamburger.svg" alt="" />
+            </button>
+            <a href="index.html"><img id="logo" src="assets/img/logo.png" alt="" /></a>
+            <ul class="links ml-auto">
+              <li>
+                <a class="active" href="index.html">Главная</a>
+              </li>
+              <li>
+                <a href="rules.html">Правила</a>
+              </li>
+              <li>
+                <a href="how-to-buy.html">Как купить донат</a>
+              </li>
+              <li>
+                <a href="https://discord.gg/FBNw6eR7yF">Наш Discord </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <a href="how-to-play.html" class="btn btn-primary ml-auto fit-content">
+              <i class="icon bx bx-play-circle fs-24"></i> Начать играть
+            </a>
+          </div>
+        </div>
+      </header>
+      <div class="container p-0">
+        <div class="row mt-60px">
+          <div class="col-lg-6">
+            <div class="title">
+              <h1 class="page-title">МАГАЗИН ПРИВИЛЕГИЙ</h1>
+              <span class="water-mark noselect">TerrariaSNG</span>
+            </div>
+            <div class="d-flex mt-20px">
+			                <a class="cursor-pointer tab active" data-tabname="survival">Выживание</a>                <a class="cursor-pointer tab " data-tabname="roleplay"></a>                <a class="cursor-pointer tab " data-tabname="anarchy"></a>                <a class="cursor-pointer tab " data-tabname="bedwars"></a>            </div>
+            
+                              <div class="row mt-40px mr-0 tab-window" id="survival" style="display: flex;">
+                    <div class="col-sm-11">
+                      <form action="index.html" method="get">
+      
+                        <div class="input-group">
+                          <label for="">Игровой ник</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-user"></i>
+                            <input name="playername" id="playername" type="text" class="input playername-input" placeholder="Введите ник" required />
+                          </div>
+                        </div>
+      
+                        <div id="donate-selector" class="input-group mt-30px">
+                          <label for="">Выберите товар</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-spreadsheet"></i>
+                            <select class="input productselect" name="item" required>								<optgroup label="Донат привилегии">								<option value="console" data-description-name="survival-console">VIP - 200РУБ</option>								<option value="TerrariaSNG" data-description-name="survival-TerrariaSNG" selected="selected">Премиум - 350РУБ</option>								<option value="sponsor" data-description-name="survival-sponsor"></option>								<option value="helper" data-description-name="survival-helper"></option>								<option value="op" data-description-name="survival-op"></option>								<option value="Imperator" data-description-name="survival-Imperator"></option>								<option value="ultimate" data-description-name="survival-ultimate"></option>								<option value="full" data-description-name="survival-full"></option>								<option value="anti" data-description-name="survival-anti"></option>								<option value="sozk" data-description-name="survival-sozk"></option>								<option value="lord" data-description-name="survival-lord"></option>								<option value="gl" data-description-name="survival-gl"></option>								<option value="admin" data-description-name="survival-admin"></option>								<option value="creative" data-description-name="survival-creative"></option>								<option value="prem" data-description-name="survival-prem">Премиум </option>								<optgroup label="Ключи">								<option value="case5" data-description-name="survival-case5"></option>								<option value="case10" data-description-name="survival-case10"></option>								<option value="case30" data-description-name="survival-case30"></option>								<option value="case50" data-description-name="survival-case50"></option>								<option value="case100" data-description-name="survival-case100"></option>                            </select>
+                          </div>
+                        </div>
+      				  
+                        <div class="input-group mt-30px">
+                          <label for="">Промокод</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-purchase-tag-alt"></i>
+                            <input type="text" class="input" name="promocode" placeholder="Промокод на скидку (если есть)" />
+                          </div>
+                        </div>
+
+					    <div class="input-group mt-30px">
+      	   	                <a onclick="$('.email-input').toggle();">
+							    <i class="icon bx bx-receipt"></i>
+      	   	                	<label for="email" class="cursor-pointer" style="text-decoration: none; color: var(--text-regular);">Нажмите, если вам нужен чек</label>
+      	   	                </a>
+						</div>
+						
+                        <div class="input-group mt-30px email-input" style="display: none;">
+                          <label> Введите свой Email </label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-mail-send"></i>
+                            <input id="contact" name="contact" type="email" class="input" placeholder="Введите почту" />
+                          </div>
+                        </div>
+
+                        <input type="hidden" name="server" id="server" value="survival">
+                        <input type="hidden" name="contacttype" id="contacttype" value="email">
+      
+                        <div class="button-group mt-30px d-flex justify-content-between">
+                          <button class="btn btn-primary open-modal" type="button" data-modal="howtobuymodal">
+                            <i class="icon bx bx-info-circle fs-24"></i> КАК ДОПЛАТИТЬ?
+                          </button>
+
+                          <button type="submit" class="btn btn-primary buy-button">
+                            <i class="icon bx bx-cart fs-24"></i> КУПИТЬ
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>                  <div class="row mt-40px mr-0 tab-window" id="roleplay" style="display: none;">
+                    <div class="col-sm-11">
+                      <form action="index.html" method="get">
+      
+                        <div class="input-group">
+                          <label for="">Игровой ник</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-user"></i>
+                            <input name="playername" id="playername" type="text" class="input playername-input" placeholder="Введите ник" required />
+                          </div>
+                        </div>
+      
+                        <div id="donate-selector" class="input-group mt-30px">
+                          <label for="">Выберите товар</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-spreadsheet"></i>
+                            <select class="input productselect" name="item" required>								<optgroup label="Донат привилегии">								<option value="console" data-description-name="roleplay-console">Консоль (Бот в Discord) - 7835 руб.</option>								<option value="TerrariaSNG" data-description-name="roleplay-TerrariaSNG" selected="selected">TerrariaSNG (все команды) - 5370 руб.</option>								<option value="sponsor" data-description-name="roleplay-sponsor">Спонсор - 2280 руб.</option>								<option value="helper" data-description-name="roleplay-helper">Хелпер - 1270 руб.</option>								<option value="op" data-description-name="roleplay-op">OP - 670 руб.</option>								<option value="Imperator" data-description-name="roleplay-Imperator">Император - 430 руб.</option>								<option value="ultimate" data-description-name="roleplay-ultimate">Король - 200 руб.</option>								<option value="full" data-description-name="roleplay-full">Босс - 150 руб.</option>								<option value="anti" data-description-name="roleplay-anti">Помощник - 100 руб.</option>								<option value="sozk" data-description-name="roleplay-sozk">Владелец - 70 руб.</option>								<option value="lord" data-description-name="roleplay-lord">Основатель - 60 руб.</option>								<option value="gl" data-description-name="roleplay-gl">SАдмин - 50 руб.</option>								<option value="admin" data-description-name="roleplay-admin">Админ - 40 руб.</option>								<option value="creative" data-description-name="roleplay-creative">Креатив - 30 руб.</option>								<option value="prem" data-description-name="roleplay-prem">Премиум - 20 руб.</option>								<option value="vip" data-description-name="roleplay-vip">Вип - 10 руб.</option>								<optgroup label="Ключи">								<option value="case5" data-description-name="roleplay-case5">Ключи 5 шт. - 25 руб.</option>								<option value="case10" data-description-name="roleplay-case10">Ключи 10 шт. - 40 руб.</option>								<option value="case30" data-description-name="roleplay-case30">Ключи 30 шт. - 80 руб.</option>								<option value="case50" data-description-name="roleplay-case50">Ключи 50 шт. - 150 руб.</option>								<option value="case100" data-description-name="roleplay-case100"></option>                            </select>
+                          </div>
+                        </div>
+      				  
+                        <div class="input-group mt-30px">
+                          <label for="">Промокод</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-purchase-tag-alt"></i>
+                            <input type="text" class="input" name="promocode" placeholder="Промокод на скидку (если есть)" />
+                          </div>
+                        </div>
+
+					    <div class="input-group mt-30px">
+      	   	                <a onclick="$('.email-input').toggle();">
+							    <i class="icon bx bx-receipt"></i>
+      	   	                	<label for="email" class="cursor-pointer" style="text-decoration: none; color: var(--text-regular);">Нажмите, если вам нужен чек</label>
+      	   	                </a>
+						</div>
+						
+                        <div class="input-group mt-30px email-input" style="display: none;">
+                          <label> Введите свой Email </label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-mail-send"></i>
+                            <input id="contact" name="contact" type="email" class="input" placeholder="Введите почту" />
+                          </div>
+                        </div>
+
+                        <input type="hidden" name="server" id="server" value="roleplay">
+                        <input type="hidden" name="contacttype" id="contacttype" value="email">
+      
+                        <div class="button-group mt-30px d-flex justify-content-between">
+                          <button class="btn btn-primary open-modal" type="button" data-modal="howtobuymodal">
+                            <i class="icon bx bx-info-circle fs-24"></i> КАК ДОПЛАТИТЬ?
+                          </button>
+
+                          <button type="submit" class="btn btn-primary buy-button">
+                            <i class="icon bx bx-cart fs-24"></i> КУПИТЬ
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>                  <div class="row mt-40px mr-0 tab-window" id="anarchy" style="display: none;">
+                    <div class="col-sm-11">
+                      <form action="index.html" method="get">
+      
+                        <div class="input-group">
+                          <label for="">Игровой ник</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-user"></i>
+                            <input name="playername" id="playername" type="text" class="input playername-input" placeholder="Введите ник" required />
+                          </div>
+                        </div>
+      
+                        <div id="donate-selector" class="input-group mt-30px">
+                          <label for="">Выберите товар</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-spreadsheet"></i>
+                            <select class="input productselect" name="item" required>								<optgroup label="Донат привилегии">								<option value="immortal" data-description-name="anarchy-immortal">Иммортал/Навсегда - 639 руб.</option>								<option value="master" data-description-name="anarchy-master">Мастер/Навсегда - 479 руб.</option>								<option value="legend" data-description-name="anarchy-legend"></option>								<option value="punisher" data-description-name="anarchy-punisher">Каратель/Навсегда - 179 руб.</option>								<option value="wanderer" data-description-name="anarchy-wanderer">Странник/Навсегда - 129 руб.</option>								<option value="titan" data-description-name="anarchy-titan">Титан/Навсегда - 79 руб.</option>								<option value="warrior" data-description-name="anarchy-warrior">ВОИН/Навсегда - 35 руб.</option>								<optgroup label="Ключи (донат)">								<option value="case5" data-description-name="anarchy-case5">Ключи 5 шт. - 42 руб.</option>								<option value="case10" data-description-name="anarchy-case10">Ключи 10 шт. - 69 руб.</option>								<option value="case20" data-description-name="anarchy-case20">Ключи 20 шт. - 119 руб.</option>								<option value="case30" data-description-name="anarchy-case30">Ключи 30 шт. - 139 руб.</option>								<optgroup label="Ключи (монетки)">								<option value="moneycase5" data-description-name="anarchy-moneycase5">Ключи 5 шт. - 25 руб.</option>								<option value="moneycase10" data-description-name="anarchy-moneycase10">Ключи 10 шт. - 42 руб.</option>								<option value="moneycase20" data-description-name="anarchy-moneycase20">Ключи 20 шт. - 79 руб.</option>								<option value="moneycase30" data-description-name="anarchy-moneycase30">Ключи 30 шт. - 129 руб.</option>								<optgroup label="Коины">								<option value="coins20" data-description-name="anarchy-coins20">20 Коинов - 20 руб.</option>								<option value="coins60" data-description-name="anarchy-coins60">50 Коинов [Бонус +10] - 50 руб.</option>								<option value="coins130" data-description-name="anarchy-coins130">100 Коинов [Бонус +30] - 100 руб.</option>								<option value="coins310" data-description-name="anarchy-coins310">250 Коинов [Бонус +60] - 250 руб.</option>								<option value="coins650" data-description-name="anarchy-coins650">500 Коинов [Бонус +150] - 479 руб.</option>								<option value="coins2000" data-description-name="anarchy-coins2000">1000 Коинов [Бонус +1000] - 979 руб.</option>								<option value="coins6000" data-description-name="anarchy-coins6000">3000 Коинов [Бонус +3000] - 2800 руб.</option>                            </select>
+                          </div>
+                        </div>
+      				  
+                        <div class="input-group mt-30px">
+                          <label for="">Промокод</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-purchase-tag-alt"></i>
+                            <input type="text" class="input" name="promocode" placeholder="Промокод на скидку (если есть)" />
+                          </div>
+                        </div>
+
+					    <div class="input-group mt-30px">
+      	   	                <a onclick="$('.email-input').toggle();">
+							    <i class="icon bx bx-receipt"></i>
+      	   	                	<label for="email" class="cursor-pointer" style="text-decoration: none; color: var(--text-regular);">Нажмите, если вам нужен чек</label>
+      	   	                </a>
+						</div>
+						
+                        <div class="input-group mt-30px email-input" style="display: none;">
+                          <label> Введите свой Email </label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-mail-send"></i>
+                            <input id="contact" name="contact" type="email" class="input" placeholder="Введите почту" />
+                          </div>
+                        </div>
+
+                        <input type="hidden" name="server" id="server" value="anarchy">
+                        <input type="hidden" name="contacttype" id="contacttype" value="email">
+      
+                        <div class="button-group mt-30px d-flex justify-content-between">
+                          <button class="btn btn-primary open-modal" type="button" data-modal="howtobuymodal">
+                            <i class="icon bx bx-info-circle fs-24"></i> КАК ДОПЛАТИТЬ?
+                          </button>
+
+                          <button type="submit" class="btn btn-primary buy-button">
+                            <i class="icon bx bx-cart fs-24"></i> КУПИТЬ
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>                  <div class="row mt-40px mr-0 tab-window" id="bedwars" style="display: none;">
+                    <div class="col-sm-11">
+                      <form action="index.html" method="get">
+      
+                        <div class="input-group">
+                          <label for="">Игровой ник</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-user"></i>
+                            <input name="playername" id="playername" type="text" class="input playername-input" placeholder="Введите ник" required />
+                          </div>
+                        </div>
+      
+                        <div id="donate-selector" class="input-group mt-30px">
+                          <label for="">Выберите товар</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-spreadsheet"></i>
+                            <select class="input productselect" name="item" required>								<optgroup label="Основной донат">								<option value="legend" data-description-name="bedwars-legend">Legend - 749 руб.</option>								<option value="magma" data-description-name="bedwars-magma">Magma - 579 руб.</option>								<option value="emerald" data-description-name="bedwars-emerald">Emerald - 329 руб.</option>								<option value="diamond" data-description-name="bedwars-diamond">Diamond - 179 руб.</option>								<option value="gold" data-description-name="bedwars-gold">Gold - 89 руб.</option>                            </select>
+                          </div>
+                        </div>
+      				  
+                        <div class="input-group mt-30px">
+                          <label for="">Промокод</label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-purchase-tag-alt"></i>
+                            <input type="text" class="input" name="promocode" placeholder="Промокод на скидку (если есть)" />
+                          </div>
+                        </div>
+
+					    <div class="input-group mt-30px">
+      	   	                <a onclick="$('.email-input').toggle();">
+							    <i class="icon bx bx-receipt"></i>
+      	   	                	<label for="email" class="cursor-pointer" style="text-decoration: none; color: var(--text-regular);">Нажмите, если вам нужен чек</label>
+      	   	                </a>
+						</div>
+						
+                        <div class="input-group mt-30px email-input" style="display: none;">
+                          <label> Введите свой Email </label>
+                          <div class="input-prepend">
+                            <i class="icon bx bx-mail-send"></i>
+                            <input id="contact" name="contact" type="email" class="input" placeholder="Введите почту" />
+                          </div>
+                        </div>
+
+                        <input type="hidden" name="server" id="server" value="bedwars">
+                        <input type="hidden" name="contacttype" id="contacttype" value="email">
+      
+                        <div class="button-group mt-30px d-flex justify-content-between">
+                          <button class="btn btn-primary open-modal" type="button" data-modal="howtobuymodal">
+                            <i class="icon bx bx-info-circle fs-24"></i> КАК ДОПЛАТИТЬ?
+                          </button>
+
+                          <button type="submit" class="btn btn-primary buy-button">
+                            <i class="icon bx bx-cart fs-24"></i> КУПИТЬ
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+          </div>
+
+          <div class="col-lg-6 pl-20px">
+            <div class="card card-lg" id="description">
+			  
+			    <!-- Default description -->
+                <div id="TerrariaSNG-description">
+                
+                           <div class="card-header">
+                             <img class="donate-description-img" src="assets/img/donates/survival/TerrariaSNG.png" alt="" loading="lazy" id="img">
+                             <div class="header-title">
+                               <h2 id="title">TerrariaSNG</h2>
+                               <p id="price">5370 ₽</p>
+                             </div>
+                           </div>
+                           <div class="card-body mt-25px">
+                             <div class="row mt-20px" style="
+                                   max-height: 510px;
+                                   overflow-y: auto;
+                                   margin-bottom: 20px;
+                                 ">
+                               <div class="col-12" id="cmdOption" style="display: block">
+                                 <h4 class="subtitle mb-20px">
+                                   <i class="fs-24 bx bx-code text-main mr-15px"></i>
+                                   ВОЗМОЖНОСТИ
+                                 </h4>
+                               </div>
+                               <div class="col-md-6 tip" id="cmds1">
+	              			  <p class="tip"><span class="text-primary"> 1. </span> Набор VIP - <span class="text-primary"> /kit vip </span></p>
+	              			  <p class="tip"><span class="text-primary"> 2. </span> Шапка (взрыной эффект) - <span class="text-primary"> /hataura explosive aura </span></p>
+	              			  <p class="tip"><span class="text-primary"> 3. </span> Эффект любви <span class="text-primary">/love  </span> )</p>
+	              			  <p class="tip"><span class="text-primary"> 4. </span> Набор PREMIUM <span class="text-primary">/kit premium </span> </p>
+	              			  <p class="tip"><span class="text-primary"> 5. </span> Шапка праздник (эффект конфетти)</p>
+	              			  <p class="tip"><span class="text-primary"> 6. </span> Шапка (грибной эффект) <span class="text-primary">/hatshroom shrooms  </span> </p>
+	              			  </div>
+	              			  <!-- style="white-space: pre-wrap" -->
+        
+	              			  <!-- style="white-space: pre-wrap" -->
+                               <div class="col-md-6 mt-20px" id="regionOption" style="display: block">
+                                 <h4 class="subtitle mb-20px">
+                                   <i class="fs-24 bx bx-map text-main mr-15px"></i>
+                                
+                                 </h4>
+                                 <div id="regions"><p class="tip"></p></div>
+                               </div>
+                               <div class="col-md-6 mt-20px" id="prefixOption" style="display: block">
+                                 <h4 class="subtitle mb-20px">
+                                   <i class="fs-24 bx bx-tag text-main mr-15px"></i>
+                                  
+                                 </h4>
+                                 <div id="prefix"><p class="tip"> <span style="color: orange"></span></p></div>
+                               </div>
+                               <div class="col-12 mt-20px">
+                                 <h4 class="subtitle mb-20px" id="abilityOption" style="display: flex">
+                                   <i class="fs-24 bx bx-category text-main mr-15px"></i>
+                                  
+                                 </h4>
+                                 <div id="abilities"><p class="tip"><span class="text-primary">  </span> </p></div>
+                                 <div id="abilities"><p class="tip"><span class="text-primary">  </span> </p></div>
+                               </div>
+                             </div>
+                           </div>
+                
+                </div>
+			  
+            </div>
+          </div>
+		  
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="donates">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="card monitoring-card">
+            <div class="card-body d-flex">
+              <div>
+                <div class="monitoring-title">
+                  <h1 class="fs-24 card-title">77.83.92.45</h1>
+                  <span class="water-mark noselect">TerrariaSNG</span>
+                </div>
+                <p class="text-second text-medium mt-10px fs-18">
+                  Сейчас играют <span class="text-primary online-placeholder">-</span> игроков.
+                </p>
+                <p class="mt-30px fs-18">Для Terraria 1.4 - 1.4.3.</p>
+              </div>
+              <img class="mobile-graph" src="assets/img/graph.png" alt="" loading="lazy" />
+			  
+              <div class="pie ml-auto">
+                <svg viewBox="0 0 36 36" class="circular-chart">
+                  <path class="circle-bg"
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                  />
+                  <path class="circle stroke-warning"
+                    stroke-dasharray="0, 100"
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                  />
+                </svg>
+                <div class="pie-number text-main">
+                  <p class="online-placeholder">-</p>
+                </div>
+
+               </div>
+
+			  
+			  <!--
+              <div class="pie ml-auto">
+                <svg class="stroke-warning">
+                  <circle cx="49" cy="49" r="49"></circle>
+                  <circle cx="49" cy="49" r="49"></circle>
+                </svg>
+                <div class="pie-number text-main">
+                  <p class="online-placeholder">-</p>
+                </div>
+              </div>
+			  -->
+			  
+            </div>
+            <div class="card-footer d-flex">
+              <a class="btn btn-primary btn-block cursor-pointer text-500 fs-18" onclick="fancyCopy('77.83.92.45',$(this))">
+                <i class="icon bx bx-plus-circle fs-24"></i> СКОПИРОВАТЬ IP
+              </a>
+              <a class="btn-copy cursor-pointer" onclick="copyToClipboard('mc.cheat-mine.ru')">
+                <i class="bx bx-copy-alt fs-24 text-main"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 d-flex">
+          <div id="livedrops" class="gradiented d-flex">
+
+            <div class="card donater-card mr-20px blurred noselect">
+              <div class="card-body">
+                <img src="assets/img/gray_skin.png" alt="" loading="lazy" />
+              </div>
+              <div class="card-footer">
+                <h4 class="nickname">********</h4>
+                <p class="mt-5px">
+                  сегодня в 00:00 </p>
+              </div>
+            </div>
+            <div class="card donater-card mr-20px blurred noselect">
+              <div class="card-body">
+                <img src="assets/img/gray_skin.png" alt="" loading="lazy" />
+              </div>
+              <div class="card-footer">
+                <h4 class="nickname">********</h4>
+                <p class="mt-5px">
+                  сегодня в 00:00  </p>
+              </div>
+            </div>
+            <div class="card donater-card mr-20px blurred noselect">
+              <div class="card-body">
+                <img src="assets/img/gray_skin.png" alt="" loading="lazy" />
+              </div>
+              <div class="card-footer">
+                <h4 class="nickname">********</h4>
+                <p class="mt-5px">
+                  сегодня в 00:00  </p>
+              </div>
+            </div>
+            <div class="card donater-card mr-20px blurred noselect">
+              <div class="card-body">
+                <img src="assets/img/gray_skin.png" alt="" loading="lazy" />
+              </div>
+              <div class="card-footer">
+                <h4 class="nickname">********</h4>
+                <p class="mt-5px">
+                  сегодня в 00:00  </p>
+              </div>
+            </div>
+            <div class="card donater-card mr-20px blurred noselect">
+              <div class="card-body">
+                <img src="assets/img/gray_skin.png" alt="" loading="lazy" />
+              </div>
+              <div class="card-footer">
+                <h4 class="nickname">********</h4>
+                <p class="mt-5px">
+                  сегодня в 00:00  </p>
+              </div>
+            </div>
+			
+          </div>
+          <div class="gradient"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <div class="row" id="serverstats">
+
+      </div>
+	  
+	  <div id="contactinfo">
+
+	  </div>
+		
+	  <br>
+	  <p class="fs-12">— <a class="text-primary" href="user-agreement.html">Пользовательское соглашение</a></p>
+	  <p class="fs-12">— <a class="text-primary" href="privacy-policy.html">Политика обработки персональных данных</a></p>
+	  <p class="fs-12">— <a class="text-primary" href="payment-processing-order.html">Порядок проведения оплаты и безопасность операций</a></p>
+
+    </div>
+	
+
+
+  </section>
+
+  <!--
+  	  	<div id="w1" class="fade modal" role="dialog" tabindex="-1" style="display: none;">
+        	<div class="modal-dialog ">
+        		<div class="modal-content">
+        		<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        			<h2>Как произвести доплату Доната?</h2>
+        		</div>
+        		<div class="modal-body">
+          <p>
+              Для доплаты доната нужно сделать 3 простых пункта.
+          </p>
+          <ul>
+              <li>Ввести свой логин</li>
+              <li>Выбрать желаемый статус</li>
+              <li>Нажать кнопку "Купить"</li>
+          </ul>
+          <p>
+              На следующей странице произойдет перерасчет стоимости доната.
+          </p>        
+        		</div>
+        		</div>
+        	</div>
+        </div>
+    -->
+
+ <div id="paymentGateway" class="modal-backdrop fade modal-dialog modal-dialog-scrollable" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-container donate-modal">
+      <div style="height:auto; overflow-x: hidden; overflow-y: visible;" class="donate-outer-modal modal small-card-lg">
+        <div class="card-header donate-header">
+          <p class="donate-text"><span class="text-primary">Выберите способ оплаты</span></p>
+          <button class="flat cursor-pointer close-modal">
+            <i class="fs-36 bx bx-x text-regular" data-modal="paymentGateway"></i>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="donate-container">
+            <div class="donate-item" data-method="card" title="Банковские карты"><img data-method="card" class="donate-img" src="assets/img/payment-methods/card2.svg"></div>
+            <div class="donate-item" data-method="qiwi" title="QIWI"><img data-method="qiwi" class="donate-img" src="assets/img/payment-methods/qiwi.svg"></div>
+            <div class="donate-item" data-method="yoomoney" title="ЮMoney"><img data-method="yoomoney" class="donate-img" src="assets/img/payment-methods/yandexmoney.svg"></div>
+            <div class="donate-item" data-method="applepay" title="ApplePay"><img data-method="applepay" class="donate-img" src="assets/img/payment-methods/applepay.svg"></div>
+            <div class="donate-item" data-method="googlepay" title="GooglePay"><img data-method="googlepay" class="donate-img" src="assets/img/payment-methods/googlepay.svg"></div>
+            <div class="donate-item" data-method="yandexpay" title="YandexPay"><img data-method="yandexpay" class="donate-img" src="assets/img/payment-methods/yandexpay.svg"></div>
+            <!--
+			<div class="donate-item" data-method="samsungpay" title="SamsungPay"><img data-method="samsungpay" class="donate-img" src="assets/img/payment-methods/samsungpay.svg"></div>
+			<div class="donate-item" data-method="yandexmoney"><img data-method="yandexmoney" class="donate-img" src="assets/img/payment-methods/yandexmoney.svg"></div>
+            <div class="donate-item" data-method="mts"><img data-method="mts" class="donate-img" src="assets/img/payment-methods/mts.svg"></div>
+            <div class="donate-item" data-method="tele2"><img data-method="tele2" class="donate-img" src="assets/img/payment-methods/tele2.svg"></div>
+            <div class="donate-item" data-method="beeline"><img data-method="beeline" class="donate-img" src="assets/img/payment-methods/beeline.svg"></div>
+			-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="howtobuymodal" class="modal-backdrop fade modal-dialog modal-dialog-scrollable" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-container">
+      <div class="modal small-card-lg">
+        <div class="card-header">
+          <button class="flat cursor-pointer ml-auto close-modal">
+            <i class="fs-36 bx bx-x text-regular" data-modal="howtobuymodal"></i>
+          </button>
+        </div>
+        <div class="card-body">
+		  <p style="font-size: 30px"><span class="text-primary">Как произвести доплату Доната?</span></p>
+		  <br><br>
+          <p>Для доплаты доната нужно выполнить 3 простых пункта:</p>
+		  <br>
+		  <p>1. Ввести свой ник</p>
+		  <p>2. Выбрать желаемый статус</p>
+		  <p>3. Нажать кнопку "Купить"</p>
+		  <br>
+          <p>На следующей странице произойдет автоматический перерасчет стоимости.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+<script lang="javascript">
+  var mobileMenu = $("#mobile-menu");
+  $("#mobile-btn").on("click", event => { mobileMenu.attr("class", "active"); });  
+  $("#close-mobile").on("click", event => { mobileMenu.attr("class", ""); });
+</script>
+   
+<script async src="assets/js/visual_features.js@v=181121"></script>
+<script async src="assets/js/server_stats.js@v=221121"></script>
+
+<script async type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(42535544, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42535544" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+</body>
+
+</html>

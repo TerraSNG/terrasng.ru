@@ -1,0 +1,85 @@
+function setLiveDrops(data) {
+	
+     var liveDrops = "";
+	 var requests = [];
+	 
+     $.each(data.drops, function (index, drop) {
+		var dropDate = new Date(drop.date);
+		var currentDate = new Date();
+		var formattedDate = dropDate.toLocaleDateString() + ' в ';
+		if (dropDate.getDate() == currentDate.getDate()) {
+			formattedDate = 'сегодня в ';
+		} else if (dropDate.getDate() < currentDate.getDate()) {
+			var difference = currentDate.getDate() - dropDate.getDate();
+			if (difference == 1) {
+				formattedDate = 'вчера в ';
+			}
+		}
+		var formattedTime = dropDate.getHours() + ':' + (dropDate.getMinutes() > 9 ? dropDate.getMinutes() : ('0' + dropDate.getMinutes()));
+		var resultTime = formattedDate + formattedTime;
+		var undashedUUID = drop.uuid.replace('-', '');
+
+        var skinUrl = `https://visage.surgeplay.com/frontfull/176/${undashedUUID}`;
+		
+     	liveDrops += 
+		`
+		   <div class="card donater-card mr-20px">
+		      <div class="card-body">
+			    <img src="${skinUrl}" alt="" />
+			  </div>
+			  <div class="card-footer">
+                <h4 class="nickname">${drop.player}</h4>
+                <p class="mt-5px">${resultTime}</p>
+              </div>
+           </div>
+		`;
+
+	 });
+	 
+	 $('#livedrops').html(liveDrops);
+	 
+}
+
+function setOnlinePlaceholder(value, slots) {
+   $('.online-placeholder').text(value);
+   var percent = 100 * value / slots;
+   $('.stroke-warning').attr('stroke-dasharray', percent + ', 100');
+}
+
+/*
+var min = 400;
+var max = 1300;
+setOnlinePlaceholder(Math.floor(min + Math.random() * (max + 1 - min)), max);
+*/
+		   
+$.ajax({
+    url: "https://api.mcsrvstat.us/2/77.83.92.45",
+    dataType: "json",
+    type: "GET",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: {},
+    success: function (data) {
+       setOnlinePlaceholder(data.players.online, data.players.max);
+    },
+    error: function (data) {
+       console.log(data);
+    },
+});
+
+$.ajax({
+    url: "https://TerrariaSNG.net/livedrops.php",
+    dataType: "json",
+    type: "GET",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: {},
+    success: function (data) {
+       setLiveDrops(data);
+    },
+    error: function (data) {
+       console.log(data);
+    },
+});

@@ -1,0 +1,58 @@
+/* Colors */
+
+svg {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  z-index: 9;
+}
+
+.single-chart {
+  width: 33%;
+  justify-content: space-around ;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  stroke: var(--primary);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #323345;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+
+.pie {
+  width: 170px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.pie-number {
+  position: relative;
+  top: -112px;
+  left: 2px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: 600;
+}
