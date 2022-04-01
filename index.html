@@ -3,16 +3,14 @@
 
 <head>
 
-	<!-- Put this script tag to the <head> of your page -->
+<!-- Put this script tag to the <head> of your page -->
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 
-
-	<!-- Put this div tag to the place, where the Allow messages from community block will be -->
-<div id="vk_allow_messages_from_community"></div>
+<!-- Put this div tag to the place, where the Community messages block will be -->
+<div id="vk_community_messages"></div>
 <script type="text/javascript">
-  VK.Widgets.AllowMessagesFromCommunity("vk_allow_messages_from_community", {}, 212199101);
+  VK.Widgets.CommunityMessages("vk_community_messages", 212199101, {tooltipButtonText: "Поддержка", expanded: 1});
 </script>
-
 	
   <meta charset="UTF-8" />
   <title>TerrariaSNG - Покупка донат привилегий</title>
