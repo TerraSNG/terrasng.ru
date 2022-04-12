@@ -53,7 +53,7 @@ setOnlinePlaceholder(Math.floor(min + Math.random() * (max + 1 - min)), max);
 */
 		   
 $.ajax({
-    url: "https://api.mcsrvstat.us/2/77.83.92.45",
+    url: "https://api.mcsrvstat.us/2/terrasng.online"
     dataType: "json",
     type: "GET",
     cache: false,
